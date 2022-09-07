@@ -1,0 +1,7 @@
+pyjwt
+PyGithub
+cryptography
+click
+requests
+
+python-dotenv
