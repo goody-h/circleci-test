@@ -37,7 +37,7 @@ get_app_token() {
     -H "Authorization: Bearer ${JWT}" \
     "${GITHUB_API}/app/installations/${APP_INSTALLATION_ID}/access_tokens" \
     | tr -d '\n' \
-    | sed -E "s/^.*\"token\"\s*:\s*\"([^\"]+)\".*$/\1/g"
+    | sed -E 's/^.*\"token\" *: *"([^"]+)".*$/\1/g'
   )
 
   rm $PEM
