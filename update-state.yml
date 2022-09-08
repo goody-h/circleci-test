@@ -1,0 +1,18 @@
+description: >
+  Updates the state of a given deployment record for a repository.
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+parameters:
+  deployment-id:
+    type: integer
+    description: "The ID number of the deployment status to update."
+  state:
+    type: string
+    description: "The deployment state to change to."
+steps:
+  - run:
+      environment:
+        PARAM_DEPLOYMENT_ID: <<parameters.deployment-id>>
+        PARAM_STATE: <<parameters.state>>
+      name: Update the deployment status
+      command: <<include(scripts/update-state.sh)>>

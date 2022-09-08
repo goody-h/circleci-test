@@ -1,3 +1,3 @@
-./setup.sh
+#!/bin/bash
 
-python deployment_manager.py status $PARAM_DEPLOYMENT_ID $PARAM_STATE
+./deployment_manager.sh status "$PARAM_DEPLOYMENT_ID" "$PARAM_STATE"

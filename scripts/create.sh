@@ -1,3 +1,3 @@
-./setup.sh
+#!/bin/bash
 
-python deployment_manager.py create
+./deployment_manager.sh create --ref "$CIRCLE_BRANCH" --env "$CIRCLE_ENVIRONMENT"
