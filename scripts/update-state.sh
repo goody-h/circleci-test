@@ -5,6 +5,8 @@ GITHUB_API="https://api.github.com"
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # ENV variables
+# PARAM_DEPLOYMENT_ID=${PARAM_DEPLOYMENT_ID}
+# PARAM_STATE=${PARAM_STATE}
 CIRCLE_PROJECT_USERNAME="goody-h"
 CIRCLE_PROJECT_REPONAME="ysf-api"
 GH_DEPLOY_APP_PEM=$( cat "${SCRIPT_DIR}/cxepi-github-deployment-manager.2022-08-25.private-key.pem" )
@@ -18,6 +20,7 @@ if [[ -z $APP_INSTALLATION_ID ]]
   then
     APP_INSTALLATION_ID="28954510" # your app installation id
   fi
+
 
 get_app_token() {
   echo "$GH_DEPLOY_APP_PEM" > ./temp.pem
