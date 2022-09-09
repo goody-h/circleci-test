@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# Variables
+GITHUB_API="https://api.github.com"
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 # ENV variables
 CIRCLE_PROJECT_USERNAME="goody-h"
 CIRCLE_PROJECT_REPONAME="ysf-api"
 CIRCLE_BRANCH="master"
-GH_DEPLOY_APP_PEM=$( cat ./cxepi-github-deployment-manager.2022-08-25.private-key.pem )
+GH_DEPLOY_APP_PEM=$( cat "${SCRIPT_DIR}/cxepi-github-deployment-manager.2022-08-25.private-key.pem" )
 
 if [[ -z $GITHUB_APP_ID ]]
   then
@@ -15,10 +19,6 @@ if [[ -z $APP_INSTALLATION_ID ]]
   then
     APP_INSTALLATION_ID="28954510" # your app installation id
   fi
-
-
-# variables
-GITHUB_API="https://api.github.com"
 
 get_app_token() {
   echo "$GH_DEPLOY_APP_PEM" > ./temp.pem
